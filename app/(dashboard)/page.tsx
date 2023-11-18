@@ -29,7 +29,6 @@ export default async function Home() {
 
 async function WelcomMsg() {
   const user = await currentUser();
-  await wait(2000);
   if (!user) {
     return <div>error</div>;
   }
@@ -45,7 +44,6 @@ async function WelcomMsg() {
 
 async function CollectionList() {
   const user = await currentUser();
-  await wait(2000);
   const collections = await prisma.collection.findMany({
     include: {
       tasks: true,
